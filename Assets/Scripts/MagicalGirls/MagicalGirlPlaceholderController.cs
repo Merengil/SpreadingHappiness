@@ -6,6 +6,8 @@ public class MagicalGirlPlaceholderController : AbstractMagicalGirlController
 {
 	public bool isAngryAtStart;
 	
+	// ************************************************************************
+	
 	public MagicalGirlPlaceholderController () : base()
 	{
 		angryState = new AngryStatePlaceholder();
@@ -15,12 +17,16 @@ public class MagicalGirlPlaceholderController : AbstractMagicalGirlController
 		else magicalGirlState = happyState;
 	}
 	
+	// ************************************************************************
+	
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
+	// ************************************************************************
+	
     // Update is called once per frame
     void Update()
     {

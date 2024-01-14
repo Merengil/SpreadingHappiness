@@ -12,22 +12,26 @@ public class MainCharacterController : MonoBehaviour
     bool strafeModeOn = false;
     CircleCollider2D hitboxCollider;
     SpriteRenderer hitboxRenderer;
+	
+	float horizontal;
+	float vertical;
 
+   // ************************************************************************
+	
     // Start is called before the first frame update
     void Start()
    {
         hitboxCollider = transform.Find("hitboxCircle").GetComponent<CircleCollider2D>();
         hitboxRenderer = transform.Find("hitboxCircle").GetComponent<SpriteRenderer>();
-    }
+   }
+	
+   // ************************************************************************
+	
    // Update is called once per frame
    void Update()
    {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        Vector2 position = transform.position;
-        position.x = position.x + hSpeed * horizontal * Time.deltaTime;
-        position.y = position.y + vSpeed * vertical * Time.deltaTime;
-        transform.position = position;
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
 
         // Apply strafe when LeftShift is held down
         if (Input.GetKeyDown(KeyCode.LeftShift) || (Input.GetKeyUp(KeyCode.LeftShift)))
@@ -39,8 +43,19 @@ public class MainCharacterController : MonoBehaviour
 		// TODO: This throws a ref not set exception
         //Debug.Log("current radius: " + hitboxCollider.radius);
     }
+	
+   // ************************************************************************
+	
+    void FixedUpdate()
+    {
+        Vector2 position = transform.position;
+        position.x = position.x + hSpeed * horizontal * Time.deltaTime;
+        position.y = position.y + vSpeed * vertical * Time.deltaTime;
+        transform.position = position;
+    }
 
-
+   // ************************************************************************
+	
    void toggleStrafe()
    {
         if(strafeModeOn)
@@ -59,5 +74,19 @@ public class MainCharacterController : MonoBehaviour
             hitboxRenderer.enabled = true;
             strafeModeOn = true;
         }
+   }
+   
+   // ************************************************************************
+   	
+   public void IncrementBobaBitCount()
+   {
+	   BobaBits++;   	
+   }
+   
+   // ************************************************************************
+   	
+   public void TakeDamage()
+   {
+	   // TODO To be determined
    }
 }

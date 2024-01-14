@@ -6,6 +6,8 @@ using UnityEngine;
 // All magical girls inherit from this
 public abstract class AbstractMagicalGirlController : MonoBehaviour
 {
+	private float cooldownShootingTimer;
+	
 	// Each magical girl type has one angrystate and one happystate
 	// that inherit from these two abstract classes.
 	protected AbstractAngryState angryState;
@@ -21,6 +23,7 @@ public abstract class AbstractMagicalGirlController : MonoBehaviour
 	// Constructor
 	public AbstractMagicalGirlController() : base()
 	{
+		float cooldownShootingTimer = 0;		
 	}	
 	
 	// ************************************************************************
@@ -29,5 +32,30 @@ public abstract class AbstractMagicalGirlController : MonoBehaviour
 	{
 		// DO STUFF HERE
 		magicalGirlState = happyState;
-	}
+		
+		// Resets the firing cooldown.
+		cooldownShootingTimer = magicalGirlState.CooldownTimeBeforeShooting;
+	}	
+	
+	// ************************************************************************
+	
+    // Start is called before the first frame update
+    void Start()
+    {
+        cooldownShootingTimer = magicalGirlState.CooldownTimeBeforeShooting;
+    }
+
+	// ************************************************************************
+	
+    // Update is called once per frame
+    void Update()
+    {        
+        cooldownShootingTimer -= Time.deltaTime;
+		if (cooldownShootingTimer < 0)
+		{
+			// Shoots once the timer is over.
+			magicalGirlState.Shoot();
+			cooldownShootingTimer += magicalGirlState.CooldownTimeBeforeShooting;
+		}
+    }
 }
