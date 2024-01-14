@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MainCharacterController : MonoBehaviour
 {
+	// number of boba bits
+	public int BobaBits = 0;
+	
 	public float hSpeed = 10.0f;
 	public float vSpeed = 10.0f;
     bool strafeModeOn = false;
@@ -32,7 +35,9 @@ public class MainCharacterController : MonoBehaviour
             toggleStrafe();
         }
         Debug.Log("current speed: " + hSpeed);
-        Debug.Log("current radius: " + hitboxCollider.radius);
+		
+		// TODO: This throws a ref not set exception
+        //Debug.Log("current radius: " + hitboxCollider.radius);
     }
 
 

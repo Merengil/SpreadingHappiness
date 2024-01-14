@@ -8,8 +8,8 @@ public abstract class AbstractMagicalGirlController : MonoBehaviour
 {
 	// Each magical girl type has one angrystate and one happystate
 	// that inherit from these two abstract classes.
-	AbstractAngryState angryState;
-	AbstractHappyState happyState;
+	protected AbstractAngryState angryState;
+	protected AbstractHappyState happyState;
 
 	// we're using a State DP. Each state has 2 methods: Move() and Shoot()
 	// Happy States will be shooting good bullets to help the MC
