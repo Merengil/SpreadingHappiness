@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class HappyStatePlaceholder : AbstractHappyState
 {
-	public HappyStatePlaceholder() : base()
-	{		
-		CooldownTimeBeforeShooting = 2.0f;
-	}
+	// Time to wait between 2 shots in seconds.
+	public override float CooldownTimeBeforeShooting {get {return 2.0f;}}
 	
-	public override void Shoot(){}
+	public HappyStatePlaceholder(AbstractMagicalGirlController mg) : base(mg)
+	{}
+		
+	public override void Shoot(){this.ShootStraight(90, 300);}
 	public override void Move(){}
 }

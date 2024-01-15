@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1956568274515334026}
   - component: {fileID: 3171967094829165439}
   - component: {fileID: 8196068155242656052}
+  - component: {fileID: -2136431254669042090}
   m_Layer: 6
   m_Name: MagicalGirlPlAngryStart
   m_TagString: Untagged
@@ -97,4 +98,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eea614639470de4b846a046728d5bff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAngryAtStart: 0
+  enemyBulletPrefab: {fileID: 1182745761348386897, guid: dddbfc9ca32328642908730676ed64e3,
+    type: 3}
+  bobaBitPrefab: {fileID: 7619055656009917487, guid: ccbf5382d19089c47ae09e2aff369442,
+    type: 3}
+  rigid2d: {fileID: 0}
+  isAngryAtStart: 1
+--- !u!50 &-2136431254669042090
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8893561570452640744}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

@@ -38,7 +38,7 @@ public class MainCharacterController : MonoBehaviour
         {
             toggleStrafe();
         }
-        Debug.Log("current speed: " + hSpeed);
+        //Debug.Log("current speed: " + hSpeed);
 		
 		// TODO: This throws a ref not set exception
         //Debug.Log("current radius: " + hitboxCollider.radius);

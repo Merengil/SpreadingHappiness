@@ -4,32 +4,12 @@ using UnityEngine;
 
 public class MagicalGirlPlaceholderController : AbstractMagicalGirlController
 {
-	public bool isAngryAtStart;
-	
-	// ************************************************************************
-	
 	public MagicalGirlPlaceholderController () : base()
 	{
-		angryState = new AngryStatePlaceholder();
-		happyState = new HappyStatePlaceholder();
+		angryState = new AngryStatePlaceholder(this);
+		happyState = new HappyStatePlaceholder(this);
 		if (isAngryAtStart)
 			magicalGirlState = angryState;
 		else magicalGirlState = happyState;
 	}
-	
-	// ************************************************************************
-	
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-	// ************************************************************************
-	
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

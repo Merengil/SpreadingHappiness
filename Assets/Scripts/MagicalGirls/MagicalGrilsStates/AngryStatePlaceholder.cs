@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class AngryStatePlaceholder : AbstractAngryState
 {	
-	public AngryStatePlaceholder() : base()
-	{
-		CooldownTimeBeforeShooting = 2.0f;
-	}
+	// Time to wait between 2 shots in seconds.
+	public override float CooldownTimeBeforeShooting {get {return 2.0f;}}
 
-	public override void Shoot(){}
+	public AngryStatePlaceholder(AbstractMagicalGirlController mg) : base(mg)
+	{}
+
+	public override void Shoot(){this.ShootStraight(180, 300);}
 	public override void Move(){}
 }
